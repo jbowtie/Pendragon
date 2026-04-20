@@ -1,0 +1,14 @@
+<section class="Pendragon" id="selectItem">
+    <div class="stat-name">{{headTitle}}</div>
+    <div class="radioList">
+      {{#each newList as |type id|}}
+        <div class="stat-name">
+          <label>
+            <input type="radio" name="selectItem" value={{type.pid}} {{#if (eq @index 0)}}checked{{/if}}></input>
+            {{type.name}}{{#if (eq type.type 'trait')}}  {{#if (ne type.system.religious 0)}}(R){{/if}}{{/if}}
+          </label>
+        </div>
+      {{/each}}
+    </div>
+    <br>
+  </section>

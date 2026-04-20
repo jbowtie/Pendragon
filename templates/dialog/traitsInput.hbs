@@ -1,0 +1,31 @@
+<section class="Pendragon stats-input" id="stats-input-form">
+  <br>
+
+  <div class="stat-name stats-input">{{localize 'PEN.statsSpend'}}</div>
+  <br>
+
+  <div class="flexcol">
+    <div class='stat-name bold statsCreate header counter'>
+      <label class="skill-opt-label">{{ localize 'PEN.pointsSpent' }}:</label>
+      <span class="centre count">{{added}}</span>
+      <span class="centre">/</span>
+      <span class="centre">{{pointsMax}}</span>
+    </div>
+    <br>
+
+  <ol class="items-list trait-point-grid">
+    {{#each traits as |trait key|}}
+    <li>
+      <div class="bold stat-name">{{trait.name}}{{#if (gt trait.religious 0)}}(R){{/if}}</div>
+      <div class="stat-name centre item-{{key}}">{{trait.value}}</div>
+      <div><a class="large-icon darkred up rollable inc-{{key}}" data-set="{{key}}">{{#unless trait.disabled}}{{#if (lt trait.value trait.maxVal)}}<i class="fas fa-circle-up"></i>{{/if}}{{/unless}}</a></div>
+      <div class="bold stat-name">{{trait.oppName}}{{#if (lt trait.religious 0)}}(R){{/if}}</div>
+      <div class="stat-name centre opp-{{key}}">{{trait.oppValue}}</div>
+      <div class="centre"><a class="large-icon darkred down rollable dec-{{key}}" data-set="{{key}}">{{#unless trait.disabled}}{{#if (gt trait.value trait.minVal)}}<i class="fas fa-circle-up"></i>{{/if}}{{/unless}}</a></div>
+    </li>
+    {{/each}}
+  </ol>
+  <div class="statsCreate">
+  </div>
+  <br>
+</section>

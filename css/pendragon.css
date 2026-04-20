@@ -1,0 +1,1803 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+/* Global styles */
+.window-app {
+  font-family: "Roboto", sans-serif;
+}
+
+@font-face {
+  font-family: "Herb";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/jaf-herb-regular.ttf") format("woff2");
+}
+
+@font-face {
+  font-family: 'AGaramondPro';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/AGaramondPro-Regular.otf') format('woff2');
+}
+
+@font-face {
+  font-family: 'Basteleur';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/Basteleur-Bold.otf') format('woff2');
+}
+
+@font-face {
+  font-family: 'IMFell';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/IMFeGPrm29C.otf') format('woff2');
+}
+
+@font-face {
+  font-family: "Messiri";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/ElMessiri-VariableFont_wght.ttf") format("woff2");
+}
+
+:root {
+  --pendragon-blue: #1274bd;
+  --pendragon-red: #ab0f14;
+  --pendragon-gold: #ffd000;
+  --pendragon-black: black;
+  --pendragon-grey: #918987;
+  --pendragon-darkred: darkred;
+  --pendragon-darkblue: #034694;  
+  --header-row: #240202;
+  --background-color: #fffde7;
+  --sec-background-color: rgb(56, 78, 30);
+  --exalted-color: rebeccapurple;
+  --font-h2: Messiri, Signika, sans-serif;
+  --pd-light-row: #e5dbd488;
+  --pd-dark-row: #4507072b;
+  --pd-first-row: #180202e7;   
+  --pill-size: var(--font-size-11);
+  --pss-table-row-colour-even: rgba(0,0,0,0.1);
+  --pss-table-row-colour-odd: transparent;  
+  --notes-background: rgb(177, 168, 168);
+}
+
+body.theme-light .application.Pendragon,
+body.theme-light.application .Pendragon{
+  --pendragon-blue: #1274bd;
+  --pendragon-red: #ab0f14;
+  --pendragon-gold: #ffd000;
+  --pendragon-black: black;
+  --pendragon-grey: #918987;
+  --pendragon-darkred: darkred;
+  --pendragon-darkblue: #034694;    
+  --header-row: #240202;
+  --background-color: #fffde7;
+  --sec-background-color: rgb(56, 78, 30);
+  --exalted-color: rebeccapurple;
+  --font-h2: Messiri, Signika, sans-serif;
+  --pd-light-row: #e5dbd488;
+  --pd-dark-row: #4507072b;
+  --pd-first-row: #180202e7; 
+  --pill-size: var(--font-size-11);
+  --notes-background: rgb(177, 168, 168);  
+  --pss-table-row-colour-even: rgba(0,0,0,0.1);
+  --pss-table-row-colour-odd: transparent;  
+}
+
+body.theme-dark .application.Pendragon,
+body.theme-dark.application .Pendragon{
+  --pendragon-blue: #1274bd;
+  --pendragon-red: #ab0f14;
+  --pendragon-gold: #ffd000;
+  --pendragon-black: #fffde7;  
+  --pendragon-grey: #3d3b3a;
+  --pendragon-darkred: #d50909;
+  --pendragon-darkblue: #034694;    
+  --header-row: #240202;
+  --background-color: #1e1e1c;
+  --sec-background-color: rgb(56, 78, 30);
+  --exalted-color: rebeccapurple;
+  --font-h2: Messiri, Signika, sans-serif;
+  --pd-light-row: #ada5a088;
+  --pd-dark-row: #396da775;
+  --pd-first-row: #1e5a69e7;
+  --pill-size: var(--font-size-11);
+  --notes-background: rgb(177, 168, 168);  
+  --pss-table-row-colour-even: rgba(0,0,0,0.1);
+  --pss-table-row-colour-odd: transparent;  
+}
+
+body.theme-dark .application.Pendragon.sheet,
+.themed.theme-dark.application.Pendragon.sheet {
+  section.window-content {
+    backdrop-filter: none;
+  }
+}
+
+
+.app .header-button.edit-pid-warning,
+.application .window-header .header-control.edit-pid-warning {
+  color: red;
+}
+
+.Pendragon.pid-editor {
+  color: black;
+  a.copy-to-clipboard {
+    flex: 0 0 20px;
+    align-self: center;
+    text-align: right;
+  }
+
+    input[type="text"], input[type="number"], select {
+      background-color: transparent;
+      color: black;
+      border: 1px solid black;
+    }
+
+  fieldset.item-sheet-properties {
+    label {
+      height: auto;
+      white-space: break-spaces;
+    }
+
+    span.warning {
+      outline: 2px dashed rgba(255, 100, 0, 0.3);
+      background-color: rgba(255, 100, 0, 0.3);
+    }
+
+    td.shorttext {
+      text-align: center;
+    }
+  }
+}
+
+.rollable:hover,
+.rollable:focus,
+.clickable:hover,
+.clickable:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+
+.journal-entry-content {
+  background-image: url("../assets/kap_background.webp");
+  background-size: cover;
+}
+
+.journal-entry-page .window-content {
+  background-image: url("../assets/kap_background.webp");
+  background-size: cover;
+}
+
+.Pendragon:not(.party) .window-content  {
+    background-image: url("../assets/parchment.jpg");
+    background-size: cover;
+    padding: 0.5em;
+    font-size: var(--font-size-16);
+}
+
+.Pendragon.party.sheet {
+  background-image: none;
+}
+
+.chat-message {
+  background-image: url("../assets/parchment.jpg");
+  background-size: auto;
+}
+
+.chat-message .message-sender {
+  color: black;
+}
+
+.Pendragon .bold {
+  font-weight: bold;
+}
+
+.Pendragon .left {
+  text-align: left;
+}
+
+.Pendragon .right {
+  text-align: right;
+}
+
+.Pendragon .centre {
+  text-align: center;
+
+  &>input {
+    text-align: inherit;
+  }
+}
+
+.Pendragon .middle {
+  display: grid;
+  align-items: center;
+}
+
+.Pendragon .bottom {
+  display: grid;
+  align-items: end;
+}
+
+.Pendragon .italics {
+  font-style: italic;
+}
+
+.Pendragon .underlined {
+  text-decoration-line: underline;
+}
+
+.Pendragon .strikethrough {
+  text-decoration: line-through;
+}
+
+.Pendragon .upper {
+  text-transform: uppercase;
+}
+
+.Pendragon .fade {
+  opacity: 0.5;
+}
+
+.Pendragon .grey {
+  background-color: rgba(128, 128, 128, 0.3);
+}
+
+.Pendragon .fraction {
+    font-variant-numeric:diagonal-fractions;
+  }
+
+.Pendragon .curtail {
+  overflow: auto;
+  max-height: 25px;
+}
+
+.Pendragon .curtail2 {
+  overflow: auto;
+  max-height: 26px;
+}
+
+.Pendragon .main-sheet {
+  height: inherit;
+}
+
+.Pendragon .border {
+  border: 1px gray solid;
+}
+
+.Pendragon .darkred {
+  color: var(--pendragon-darkred);
+}
+
+.Pendragon .new-row {
+  grid-column-start: 1;
+}
+
+.Pendragon .sheet-tabs {
+  border-top: 1px gray solid !important;
+  border-bottom: 1px gray solid !important;
+  height: 45px;
+  background-color: rgba(128, 128, 128, 0.3);
+  font-family: "Herb";
+  font-size: 20px;
+  color: black;
+}
+
+.Pendragon .items-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.Pendragon .create-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Pendragon .dialog-button {
+  background-color: rgba(15, 15, 15, 0.7);
+  color: cornsilk;
+}
+
+.Pendragon .sheet-body,
+.Pendragon .sheet-body .tab,
+.Pendragon .sheet-body .tab .editor {
+  height: 100%;
+  font-family: "AGaramondPro";
+  font-size: 14px;
+}
+
+.Pendragon .tox .tox-editor-container {
+  background: #fff;
+  font-family: "AGaramondPro";
+  font-size: 14px;
+}
+
+.Pendragon .tox .tox-edit-area {
+  padding: 0 8px;
+}
+
+.Pendragon .character.tab.active {
+  overflow-y: auto;
+  min-height: 390px;
+}
+
+.Pendragon .charname-input input {
+  font-family: "Herb";
+  font-size: 30px;
+  height: fit-content;
+  color: darkred;
+  border: 0px;
+  border-radius: 0px;
+  background: none;
+  box-shadow: none;
+}
+
+.Pendragon .charname {
+  font-family: "Herb";
+  font-size: 30px;
+}
+
+.Pendragon .tab-name {
+  font-family: "Herb";
+  font-size: 20px;
+  padding: 8px 0px !important;
+}
+
+.Pendragon .stat-name {
+  font-family: "AGaramondPro";
+  font-size: 20px;
+  color: black;
+}
+
+.Pendragon .stat-name select {
+  font-size: inherit;
+  color: black;
+  background: transparent;
+  border: 1px solid black;
+}
+
+.Pendragon input .inline-edit {
+  padding: 0px;
+}
+
+.Pendragon .input-border {
+  border-bottom: 1px darkred solid;
+}
+
+.Pendragon .stat-name-input input {
+  font-family: "AGaramondPro";
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 3px;
+  padding: 0px;
+  color: darkred;
+  height: 20px;
+  border: 0px;
+  border-radius: 0px;
+  background: none;
+  box-shadow: none;
+}
+
+.Pendragon .event-input input {
+  height: 26px !important;
+}
+
+.Pendragon .dam-name-input input {
+  font-family: "AGaramondPro";
+  font-size: 20px;
+  font-weight: bold;
+  height: 26px;
+  padding: 0px;
+  color: darkred;
+  border: 0px;
+  border-radius: 0px;
+  background: none;
+  box-shadow: none;
+}
+
+.Pendragon .rotate {
+  transform: rotate(180deg);
+}
+
+.Pendragon .history-input input {
+  font-family: "AGaramondPro";
+  font-size: 20px;
+  color: black;
+  height: fit-content;
+  width: 395px;
+  border: 1px gray solid;
+  border-radius: 0px;
+  background: none;
+  box-shadow: none;
+}
+
+.Pendragon .equestrian-input input {
+  font-family: "AGaramondPro";
+  font-size: 20px;
+  color: black;
+  border: 1px gray solid;
+  border-radius: 0px;
+  background: none;
+  box-shadow: none;
+}
+
+.Pendragon .trait-input {
+  padding-top: 3px;
+}
+
+.Pendragon .title-section {
+  display: grid;
+  grid-template-columns: 140px auto 140px;
+  column-gap: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .skill-list {
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  padding: 0;
+  margin: 0px;
+  height: 100%;
+}
+
+.Pendragon .weapon-list {
+  list-style: none;
+  padding: 0;
+  margin: 0px;
+  border-bottom: 1px gray solid;
+}
+
+.Pendragon .char-grid {
+  display: grid;
+  grid-template-columns: 100px 160px 250px;
+  column-gap: 10px;
+}
+
+.Pendragon .combat-grid {
+  display: grid;
+  grid-template-columns: 310px 501px;
+  column-gap: 10px;
+}
+
+.Pendragon .stat-grid {
+  display: grid;
+  grid-template-columns: 50px 50px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .hp-grid {
+  display: grid;
+  grid-template-columns: 160px 90px;
+  grid-template-rows: repeat(5, 23px);
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .hp2-grid {
+  display: grid;
+  grid-template-columns: 180px 60px 160px 60px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .knock-grid {
+  display: grid;
+  grid-template-columns: 145px 160px;
+  grid-template-rows: repeat(5, 23px);
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .passive-grid {
+  display: grid;
+  width: 251px;
+  grid-template-columns: 180px 70px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-top: 1px gray solid;
+  border-left: 1px gray solid;
+}
+
+.Pendragon .cash-grid {
+  display: grid;
+  grid-template-columns: 160px 45px 10px 40px;
+  grid-template-rows: 23px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .status-grid {
+  display: grid;
+  grid-template-columns: 30px 130px;
+  grid-template-rows: repeat(6, 23px);
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .warhorse-grid {
+  display: grid;
+  grid-template-columns: 70px 50px 30px 100px 50px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .weapon-grid {
+  display: grid;
+  width: 501px;
+  grid-template-columns: 150px 100px 50px 90px 50px 60px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-top: 1px gray solid;
+  border-left: 1px gray solid;
+}
+
+.Pendragon .history-grid {
+  display: grid;
+  grid-template-columns: 70px 550px 70px 60px;
+  gap: 0px;
+  width: 751px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-top: 1px gray solid;
+  border-left: 1px gray solid;
+}
+
+.Pendragon .ideal-grid {
+  display: grid;
+  width: 681px;
+  grid-template-columns: 550px 70px 60px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-top: 1px gray solid;
+  border-left: 1px gray solid;
+}
+
+.Pendragon .wound-grid {
+  display: grid;
+  width: 301px;
+  grid-template-columns: 30px 120px 60px 30px 60px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-top: 1px gray solid;
+  border-left: 1px gray solid;
+}
+
+.Pendragon .companion-grid {
+  display: grid;
+  width: 801px;
+  grid-template-columns: 50px 180px 60px 60px 80px 80px 80px 75px 75px 60px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-top: 1px gray solid;
+  border-left: 1px gray solid;
+}
+
+.Pendragon .squire-grid {
+  display: grid;
+  width: 691px;
+  grid-template-columns: 250px 100px 60px 60px 60px 100px 60px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-top: 1px gray solid;
+  border-left: 1px gray solid;
+}
+
+.Pendragon .retainer-grid {
+  display: grid;
+  width: 471px;
+  grid-template-columns: 250px 100px 60px 60px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-top: 1px gray solid;
+  border-left: 1px gray solid;
+}
+
+.Pendragon .armour-grid {
+  display: grid;
+  width: 791px;
+  grid-template-columns: 30px 200px 50px 50px 200px 200px 60px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-top: 1px gray solid;
+  border-left: 1px gray solid;
+}
+
+.Pendragon .gear-grid {
+  display: grid;
+  width: 791px;
+  grid-template-columns: 200px 50px 480px 60px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-top: 1px gray solid;
+  border-left: 1px gray solid;
+}
+
+.Pendragon .GMItem-grid {
+  display: grid;
+  width: 661px;
+  grid-template-columns: 250px 150px 230px 30px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-top: 1px gray solid;
+  border-left: 1px gray solid;
+}
+
+.Pendragon .family-grid {
+  display: grid;
+  width: 641px;
+  grid-template-columns: 150px 100px 70px 80px 90px 90px 60px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-top: 1px gray solid;
+  border-left: 1px gray solid;
+}
+
+.Pendragon .follower-list-grid {
+  display: grid;
+  width: 641px;
+  grid-template-columns: 150px 100px 200px 70px 70px 50px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-top: 1px gray solid;
+  border-left: 1px gray solid;
+}
+
+.Pendragon .grid-item {
+  border-right: 1px gray solid;
+  overflow: hidden;
+}
+
+.Pendragon .grid-item-bottom {
+  border-bottom: 1px gray solid;
+  border-right: 1px gray solid;
+  overflow: hidden;
+}
+
+.Pendragon .grid-item-top {
+  border-top: 1px gray solid;
+  border-bottom: 1px gray solid;
+  border-right: 1px gray solid;
+  overflow: hidden;
+}
+
+.Pendragon .grid-item-left {
+  border-left: 1px gray solid;
+  border-bottom: 1px gray solid;
+  border-right: 1px gray solid;
+  overflow: hidden;
+}
+
+.Pendragon .weapon-item {
+  border-right: 1px gray solid;
+  overflow: hidden;
+}
+
+.Pendragon .item-trait-grid {
+  display: grid;
+  grid-template-columns: 180px 190px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .item-culture-grid {
+  display: grid;
+  grid-template-columns: 150px 100px 75px 75px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .money-grid {
+  display: grid;
+  grid-template-columns: 180px 30px 30px 30px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .item-armour-grid {
+  display: grid;
+  grid-template-columns: 180px 390px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .item-horse-grid {
+  display: grid;
+  grid-template-columns: 140px 120px 10px 140px 120px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .history-item-grid {
+  display: grid;
+  grid-template-columns: 100px 400px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .history-small-grid {
+  display: grid;
+  grid-template-columns: 150px 50px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .trait-grid {
+  display: grid;
+  grid-template-columns: 50px 30px 150px 70px 150px 30px 50px 60px 230px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .skill-grid {
+  display: grid;
+  grid-template-columns: 25px 145px 35px 60px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .biog-grid {
+  display: grid;
+  grid-template-columns: 200px 200px 10px 130px 250px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .passion-grid {
+  display: grid;
+  grid-template-columns: 30px 250px 50px 60px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .joust-grid {
+  display: grid;
+  grid-template-columns: 100px 50px 100px 50px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .biog-herald {
+  display: grid;
+  grid-template-columns: 200px 590px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .large-icon {
+  font-size: 20px;
+  text-align: center;
+  color: black;
+}
+
+.Pendragon .xlarge-icon {
+  font-size: 40px;
+  text-align: center;
+}
+
+.Pendragon .middle-icon {
+  padding-bottom: 5px;
+}
+
+.Pendragon .background-doc {
+  background-image: none;
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+  min-height: 200px;
+  height: fit-content;
+  border: 1px gray solid;
+}
+
+.Pendragon .history-doc input {
+  font-family: AGaramondPro;
+  background-image: none;
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+  white-space: pre-wrap !important;
+  height: fit-content;
+  border: 1px gray solid;
+  border-radius: 0px;
+}
+
+.Pendragon .features-doc {
+  height: 100px !important;
+}
+
+.Pendragon .background-doc p {
+  font-family: AGaramondPro;
+  font-size: 20px !important;
+  color: black;
+}
+
+.Pendragon .bottom-panel {
+  display: flex;
+  flex: 1;
+  height: calc(100% - 245px);
+  border-top: 0px;
+  width: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.Pendragon .npc-title-section {
+  display: grid;
+  width: 345px;
+  grid-template-columns: 70px 190px 70px 20px 20px;
+  column-gap: 5px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 75px;
+  max-height: 75px;
+}
+
+.Pendragon .npc-name {
+  font-family: "AGaramondPro";
+  font-size: 16px;
+  color: black;
+  padding-left: 0px;
+}
+
+.Pendragon .npc-name-display {
+  font-family: "AGaramondPro";
+  font-size: 16px;
+  font-weight: bold;
+  padding: 1px 0px 0px 0px;
+  color: black;
+  height: 21px;
+}
+
+.Pendragon .follower-title-section {
+  display: grid;
+  grid-template-columns: 295px 70px 25px;
+  column-gap: 5px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 75px;
+  max-height: 75px;
+}
+
+.Pendragon .follower-type {
+  font-family: "AGaramondPro";
+  font-size: 16px;
+  color: black;
+  padding-top: 3px;
+}
+
+.Pendragon .follower-type select {
+  height: calc(100% - 6px);
+  background: rgba(53, 119, 53, 0.3);
+}
+
+.Pendragon .npcname-input input {
+  font-family: "Herb";
+  font-size: 16px;
+  height: fit-content;
+  color: darkred;
+  border: 0px;
+  border-radius: 0px;
+  background: none;
+}
+
+.Pendragon .followername-input input {
+  font-family: "Herb";
+  font-size: 16px;
+  height: fit-content;
+  color: #005b00;
+  border: 0px;
+  border-radius: 0px;
+  background: none;
+  padding-top:4px;
+}
+
+
+.Pendragon .npc-name-input input {
+  font-family: "AGaramondPro";
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0px;
+  color: darkred;
+  height: 16px;
+  border: 0px;
+  border-radius: 0px;
+  box-shadow: none;
+  background: none;
+}
+
+.Pendragon .npc-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 38px);
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .follower-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 55px);
+  column-gap: 5px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .npc-stats-grid {
+  display: grid;
+  width: 402px;
+  grid-template-columns: 121px 75px 10px 121px 75px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-bottom: 1px gray solid;
+  border-top: 1px gray solid;
+}
+
+.Pendragon .npcv2-stats-grid {
+  display: grid;
+  width: 402px;
+  grid-template-columns: 118px 75px 118px 75px;
+  column-gap: 5px;
+  row-gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-bottom: 1px gray solid;
+  border-top: 1px gray solid;
+}
+
+.Pendragon .npc-base-stats-grid {
+  display: grid;
+  width: 402px;
+  grid-template-columns: 40px 60px 29px 40px 60px 29px 40px 60px 29px;
+}
+
+.Pendragon .npc-armour {
+  display: grid;
+  grid-template-columns: 33px 9px 33px;
+}
+
+.Pendragon .npc-weapons-grid {
+  display: grid;
+  width: 402px;
+  border-bottom: 1px gray solid;
+  grid-template-columns: 232px 50px 80px 40px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .npc-trait-grid {
+  display: grid;
+  width: 402px;
+  border-bottom: 1px gray solid;
+  grid-template-columns: 131px 30px 40px 131px 30px 40px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .npc-notes-grid {
+  display: grid;
+  width: 360px;
+  grid-template-columns: 360px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .follower-notes-grid {
+  display: grid;
+  width: 402px;
+  grid-template-columns: 402px;
+  gap: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.Pendragon .npc-notes-doc {
+  background-image: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 200px;
+  width: 360px;
+  border: 1px gray solid;
+  font-family: AGaramondPro;
+  font-size: 16px !important;
+}
+
+.Pendragon .follower-notes-doc {
+  background-image: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 200px;
+  width: 402px;
+  border: 1px gray solid;
+  font-family: AGaramondPro;
+  font-size: 16px !important;
+}
+
+.Pendragon .npcv2-notes-doc {
+  background-image: none;
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 672px;
+  width: 360px;
+  border: 1px gray solid;
+  font-family: AGaramondPro;
+  margin:10px;
+}
+
+  .npcv2-notes-doc .prosemirror,
+  .npcv2-notes-doc prose-mirror {
+    min-height: 623px;
+    height: 100%;
+    width: 335px;
+    color: black;
+  }
+
+  .npcv2-notes-doc .prosemirror.active .editor-content,
+  .npcv2-notes-doc prose-mirror.active .editor-content {
+    max-height: 580px;
+  }
+
+  .npcv2-notes-doc .prosemirror.inactive .editor-content,
+  .npcv2-notes-doc prose-mirror.inactive .editor-content {
+    max-height: 670px;
+  }  
+
+.Pendragon .result-success {
+  color: green;
+}
+
+.Pendragon .result-fail {
+  color: darkred;
+}
+
+.Pendragon .result-yellow {
+  color: rgb(255, 145, 0);
+}
+
+.Pendragon .prestige-result {
+  display: grid;
+  width: 401px;
+  margin-left: 10px;
+  margin-right: 10px;
+  grid-template-columns: 40px 120px 250px 50px 40px;
+}
+
+.Pendragon .cardbutton {
+  background-color: rgba(105, 105, 105, 0.6);
+}
+
+.Pendragon .img-bottom {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 5px;
+}
+
+.Pendragon .op-list {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+  background: none;
+  box-shadow: none;
+  border: none;
+}
+
+.Pendragon .actor-roll {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.Pendragon .actor-roll .roll-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.Pendragon .actor-roll .roll-details .header {
+  height: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.Pendragon .actor-roll .roll-details .header .name {
+  flex: 1;
+  font-size: 14px;
+  font-weight: bold;
+  padding-left: 2px;
+}
+
+.Pendragon .actor-roll .roll-details .header .a {
+  height: 16px;
+  line-height: 16px;
+}
+
+.Pendragon .actor-roll span.pending {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid #b5b3a4;
+  border-radius: 3px;
+  font-size: 14px;
+  height: 20px;
+  line-height: 20px;
+  margin: 2px 0;
+  display: inline-block;
+  text-align: center;
+}
+
+
+
+.Pendragon .rollHidden {
+  margin-left: 40px;
+  font-size: 12px;
+}
+
+.Pendragon .open-actor {
+  aspect-ratio: 1/1;
+}
+
+.Pendragon .W {
+  background-color: rgb(238, 141, 15) !important;
+  font-weight: bold;
+}
+
+.Pendragon .truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.Pendragon .familyCreate {
+  display: grid;
+  width: 380px;
+  margin-left: 5px;
+  grid-template-columns: 100px 130px 5px 130px;
+}
+
+.Pendragon .statsCreate {
+  display: grid;
+  width: 355px;
+  margin-left: 5px;
+  grid-template-columns: 150px 50px 50px 50px 50px;
+}
+
+#help-tooltip {
+  z-index: 509;
+  position: absolute;
+  left: -999px;
+  top: -999px;
+  background-color: #fff;
+  color: #000;
+  padding: 10px;
+  border: 2px solid #670b0b;
+  background: url("../assets/parchment.jpg");
+
+  label {
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin: 0.5rem;
+  }
+
+  ol {
+    padding: 0;
+    margin: 0 0.5rem 0.5rem;
+    list-style: none;
+
+    li {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.Pendragon .horizontalboxed {
+  border-top: 2px rgba(68, 7, 4, 1) solid;
+  border-bottom: 2px rgba(68, 7, 4, 1) solid;
+}
+
+.Pendragon .rollWrite-grid {
+  display: grid;
+  margin-left: 5px;
+  grid-template-columns: 150px 150px;
+}
+
+.Pendragon .stats-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  height: calc(100% - 20px);
+}
+
+.Pendragon .stats-tab-grid {
+  display: grid;
+  margin: 0px;
+  padding: 2px 2px 2px 2px;
+  row-gap: 0px;
+  column-gap: 0px;
+  font-size: 14px;
+  grid-template-columns: 60px 60px 65px 65px 65px 65px 65px 65px 65px 65px 60px 50px 80px;
+}
+
+.Pendragon .stat-item {
+  font-family: "AGaramondPro";
+  font-size: 20px;
+  color: black;
+}
+
+.Pendragon .stat-item input {
+  font-family: "AGaramondPro";
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 1px;
+  padding: 0px;
+  color: darkred;
+  height: 20px;
+  border: 0px;
+  border-radius: 0px;
+  background: none;
+  box-shadow: none;
+}
+
+.Pendragon .lock-result {
+  color: black !important;
+}
+
+.Pendragon .pm-dropdown {
+  background-color: #af8c62c2 !important;
+  color: black !important;
+}
+
+.Pendragon .prosemirror .fa-chevron-down {
+  color: black !important;
+}
+
+.Pendragon .prosemirror .editor-content {
+  position: relative;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: black;
+}
+
+.Pendragon .prosemirror .editor-container {
+  margin: 0px;
+  background: transparent;
+}
+
+.Pendragon .prosemirror .menu {
+  margin: 0px;
+  background: transparent;
+  color: black;
+}
+
+.Pendragon textarea {
+  min-height: 200px;
+}
+
+.Pendragon .item-list {
+  margin: 0px;
+}
+
+.Pendragon .droppable .item-list:not(:has(li)):before {
+  content: "Add items by dropping them here";
+  text-align: center;
+  margin-block-end: 1lh;
+  display: block;
+  font-style: italic;
+}
+
+.Pendragon .indent {
+  padding-left: 10px;
+}
+
+.Pendragon .proceed {
+  background-color: rgba(15, 15, 15, 0.7);
+  color: cornsilk;
+}
+
+.Pendragon .check-lower {
+  padding-top: 2px;
+}
+
+.Pendragon .darkredreset {
+  float: right;
+  font-size: 14px;
+  padding-top: 5px;
+  color: darkred;
+}
+
+.Pendragon .skill-dev-list {
+  list-style: none;
+}
+
+.Pendragon .skill-dev-listitem {
+  display: grid;
+  margin: 0px;
+  row-gap: 0px;
+  column-gap: 0px;
+  font-size: 14px;
+  grid-template-columns: 150px 90px 90px 90px 90px 90px 90px 90px;
+}
+
+.Pendragon .groupTitle {
+  display: grid;
+  margin: 0px;
+  row-gap: 0px;
+  column-gap: 0px;
+  grid-template-columns: 300px 150px 50px;
+}
+
+.Pendragon .group-control {
+  max-width: 35px;
+  text-align: right;
+}
+
+.Pendragon .group-label {
+  min-width: 265px;
+  max-width: 265px;
+}
+
+.Pendragon .stat-name .item-controls {
+  display: flex;
+  flex: 0 0 50px;
+  justify-content: space-between;
+}
+
+.Pendragon .description {
+  height: 300px;
+}
+
+.Pendragon .descriptionPlus {
+  height: 400px;
+}
+
+.Pendragon .GMdescription {
+  height: 300px;
+}
+
+.tjg {
+  width: 160px;
+  padding-right: 5px;
+  background: rgb(50, 25, 0);
+  color: cornsilk;
+}
+
+.Pendragon .white-title {
+  font-family: "AGaramondPro";
+  font-weight: bold;
+  font-size: 20px;
+  color: cornsilk;
+}
+
+.Pendragon .blue-title {
+  font-family: "AGaramondPro";
+  font-weight: bold;
+  font-size: 20px;
+  color: #034694;
+}
+
+.Pendragon .red-title {
+  font-family: "AGaramondPro";
+  font-weight: bold;
+  font-size: 20px;
+  color: darkred;
+}
+
+
+.Pendragon .blue {
+  color: #034694;
+}
+
+.Pendragon .black {
+  color: black;
+}
+
+.Pendragon .purple {
+  color: rgb(156, 7, 156);
+}
+
+.Pendragon .follower-grid {
+  display: grid;
+  margin: 0px;
+  row-gap: 0px;
+  column-gap: 0px;
+  font-size: 14px;
+  grid-template-columns: 192px 90px;
+  grid-template-rows: 32px;
+}
+
+.Pendragon .follower-details-grid {
+  display: grid;
+  margin: 0px;
+  row-gap: 0px;
+  column-gap: 0px;
+  font-size: 14px;
+  grid-template-columns: 100px 260px;
+}
+
+/* step six - pick a famous trait */
+.Pendragon .trait.radioList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  & .stat-name {
+    width: 40%;
+  }
+
+  & .stat-name.opposed {
+    text-align: end;
+  }
+}
+
+/* step six - assign trait points */
+.Pendragon .trait-point-grid {
+  li {
+    display: grid;
+    gap: 2px;
+    grid-template-columns: 14ch 4ch 55px 14ch 4ch 40px;
+  }
+}
+
+.Pendragon .court-name {
+  font-family: "AGaramondPro";
+  font-size: 20px;
+  color: black;
+  text-transform: capitalize;
+  margin:0px;
+}
+
+/* skill training - assign skill points */
+.Pendragon .skill-point-grid {
+  columns: 2;
+  column-gap: 1lh;
+
+  li {
+    display: grid;
+    gap: 2px;
+    grid-template-columns: 30ch 40px 4ch 40px;
+  }
+}
+
+.Pendragon .dice-roll .dice-tooltip {
+  display: none;
+}
+
+.Pendragon .dice-roll.expanded .dice-tooltip {
+  display: flex;
+}
+
+/* Dark theme */
+.system-Pendragon.theme-dark {
+  :not(.controls-dropdown) {
+    .Pendragon {
+      --color-text-primary: #000;
+      --color-text-emphatic: #000;
+      --color-text-secondary: #333;
+    }
+  }
+}
+
+/*  combat tracker for seating */
+.system-Pendragon h3.combat-tracker-header {
+  margin: 0 0 0.5em;
+  font-size: larger;
+}
+
+.system-Pendragon .seating {
+  display: list-item;
+}
+
+.system-Pendragon .seating-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 2px groove var(--color-dark-4);
+}
+
+.system-Pendragon .pendragon-combat-extras {
+  margin: 0;
+  border-block: 2px groove var(--color-dark-4);
+
+  & a.center {
+    flex: 3;
+    font-size: var(--font-size-20);
+    text-align: center;
+    line-height: var(--sidebar-header-height);
+    color: var(--color-text-primary);
+  }
+}
+
+.system-Pendragon .token-geniality {
+  max-width: 3em;
+
+  input {
+    color: var(--color-text-primary);
+    text-align: end;
+  }
+}
+
+/* v13 tweaks */
+.Pendragon.item .sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & img {
+    height: 64px;
+  }
+}
+
+.Pendragon .form-footer {
+  display: flex;
+  margin-top: 1em;
+  gap: 1em;
+
+  button {
+    width: 100%;
+  }
+}
+
+.Pendragon .skill-cat-grid {
+  display: grid;
+  grid-template-columns: 150px 150px 150px;
+  column-gap: 20px;
+  row-gap: 5px;
+  padding-left: 10px;
+}
+
+.Pendragon .skillcat {
+  border: 1px solid black;
+  border-radius: 4px;
+  text-align: center;
+  font-family: AGaramondPro;
+  color: black;
+}
+
+.Pendragon .activeskillcat {
+  background-color: darkred;
+  color: cornsilk;
+}
+
+.Pendragon .skill-header {
+  display: grid;
+  grid-template-columns: 230px 20px 150px;
+}
+
+#pendragon-calendar {
+  width: 600px;
+}
+
+#pendragon-calendar nav {
+  display: flex;
+  width: 100%;
+  background: var(--control-bg-color);
+  color: var(--color-text-primary);
+  border-radius: 0 0 40px 40px;
+  height: 1.5em;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+
+.Pendragon.party {
+  background-image: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.Pendragon .party {
+  overflow-y: auto;
+}
+
+
+
+.Pendragon.party.app .window-content {
+  padding: 5px;
+  background-image: none;
+}
+
+.Pendragon .party-list {
+  list-style: none;
+  display: block;
+  padding: 0;
+  margin: 0;
+  background-image: none;
+  width: inherit;
+}
+
+
+.Pendragon .party-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: .5rem;
+  overflow: visible;
+  margin: 0 auto;
+}
+
+.Pendragon .party-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 10px;
+  justify-content: center;
+}
+
+.Pendragon .party-member {
+  border: 1px solid cornsilk;
+  padding: 2px;
+  width: 283px;
+  height: 106px;
+}
+
+.Pendragon .party-member-name {
+  display: grid;
+  grid-template-columns: 230px 40px;
+  column-gap: 5px;
+  color: cornsilk;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.Pendragon .party-member-grid {
+  display: grid;
+  grid-template-columns: 80px 200px;
+  column-gap: 5px;
+  row-gap: 10px;
+  height: 80px;
+}
+
+.Pendragon .partybars-multi {
+  height: 80px;
+  width: 190px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Pendragon .partybar {
+  width: 190px;
+  height: 20px;
+  background-color: darkgrey;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.Pendragon .partybar .hpbar {
+  background-color: rgba(68, 111, 94, 0.5);
+  height: 100%;
+  white-space: nowrap;
+}
+
+.Pendragon .party .high-score {
+  color: cornsilk;
+  font-size: 15px;
+  overflow: hidden;
+  white-space: wrap;
+  text-overflow: ellipsis;
+}
+
+
+.Pendragon .hide-enc-notes {
+  display: none;
+}
+
+.Pendragon .img-centre {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Pendragon.npcv2,
+.Pendragon.item.sheet {
+   overflow: visible;
+   .window-content{
+    overflow-y: auto;
+    scrollbar-width: thin;  
+   }
+}
+
+.Pendragon.npcv2, .Pendragon.item {
+  .controls-dropdown { 
+    background-color: black;
+    background-image:none;
+    a.button, button {
+      color: cornsilk;
+    }  
+  }    
+}
+
+.Pendragon.item {
+  nav.tabs {
+      --color-text-primary: #000;
+      --color-text-emphatic: #000;
+      --color-text-secondary: #333;
+  }
+}
+
+.Pendragon .npc-notes-section {
+    position: absolute;
+    min-width: 355px;
+    min-height: 714px;
+    border: 1px solid var(--pendragon-black);
+    color: var(--pendragon-black);
+    top: 35px;
+    left: 418px;
+    background-color: var(--notes-background);  
+    color: black;       
+  } 
+
+.Pendragon .actor-import {
+  min-width: 640px;
+  min-height: 625px;
+}
+
+.Pendragon .actor-import-button {
+  background-color: var(--pendragon-blue);
+  color: cornsilk;
+}
+
+.Pendragon .charcreate {
+  display: grid;
+  grid-template-columns: 250px 75px 75px 75px 250px 30px;
+  column-gap: 5px;
+  max-height: 23px;
+  margin: 0px;
+}
+
+.Pendragon li:nth-child(odd).charcreate {
+  background-color: var(--pss-table-row-colour-even);
+}
+

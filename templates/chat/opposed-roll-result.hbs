@@ -1,0 +1,66 @@
+<section class="Pendragon">
+    <div class="dice-roll">
+      <div style="display: block">  
+        <div class="flavour-result"> 
+          Opposed Roll Result
+          {{rollType}}: {{label}} 
+          {{#if (eq type 'damage')}}
+            ({{dmgFormula}})
+          {{else}}
+            ({{grossTarget}})
+          {{/if}}
+        </div>
+  
+          <div class="flavour-result">
+          {{#if (lt checkBonus 0)}}
+            <div>{{localize 'PEN.penalty'}}: {{checkBonus}}</div>
+          {{/if}}  
+          {{#if (gt checkBonus 0)}}
+            <div>{{localize 'PEN.bonus'}}: +{{checkBonus}}</div>
+          {{/if}}
+          {{#if (lt reflexMod 0)}}
+            <div>{{localize 'PEN.reflexMod'}}: {{reflexMod}}</div>
+          {{/if}}  
+          {{#if (gt reflexMod 0)}}
+            <div>{{localize 'PEN.reflexMod'}}: +{{reflexMod}}</div>
+          {{/if}}
+
+        {{#if (eq resultLevel 3)}}
+          <div class="roll-icons">{{resultLabel}}: <i class="result-success fas fa-swords"></i><i class="result-success fas fa-swords"></i></div>
+        {{/if}}
+  
+        {{#if (eq resultLevel 2)}}
+          <div class="roll-icons">{{resultLabel}}: <i class="result-success fas fa-swords"></i></div>
+        {{/if}}
+  
+        {{#if (eq resultLevel 1)}}
+          <div class="roll-icons">{{resultLabel}}: <i class="result-fail fas fa-skull"></i></div>
+        {{/if}}
+  
+        {{#if (eq resultLevel 0)}}
+          <div class="roll-icons">{{resultLabel}}: <i class=" result-fail fas fa-skull"></i><i class="result-fail fas fa-skull"></i><i class=" result-fail fas fa-skull"></i></div>
+        {{/if}}
+   
+        <div class="dice-result">
+  
+          <div class="dice-tooltip">
+            <div class="owner-only" style="display:block">
+              <div class="card-buttons" style="padding: 2px 0;margin: 0;">
+                <div class="bottomline"> </div>
+            </div>
+            </div>
+          </div>
+  
+          <h3 class="align-center dice-total" >{{result}}</h3>
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{#if reverseRoll}}
+    <button class="cardbutton owner-only align-center" data-preset = "reverseRoll" type = "button" >{{localize 'PEN.reverseRoll'}}</button>
+  {{/if}}
+  
+  </section>  

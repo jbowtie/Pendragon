@@ -1,0 +1,71 @@
+<header class="Pendragon {{cssClass}} character draggable" autocomplete="off">
+
+  <section class="main-sheet">
+
+    <section class="title-section">
+      {{!-- Characteristics Header --}}
+        <div class="charname-input" style="grid-column: 1 / span 2"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></div>
+        <div class="right"><a class="large-icon" data-action="toggleActor" data-property="lock" data-tooltip='{{localize "PEN.lock"}}'><i class="fas {{#if isLocked}}fa-lock{{else}}fa-lock-open{{/if}}"></i></a></div>        
+        <div class="new-row">
+          <img class="profile-img" src="{{actor.system.coatOfArms}}" data-action="onEditImage" data-edit="system.coatOfArms" data-tooltip="{{actor.system.heraldry}}" height="140" width="140"/>
+        </div>
+      <section class="sheet-header">
+
+        <div class="char-grid">
+          <div class="stat-grid">
+            {{#each system.stats as |stat key|}}
+              <div class="stat-name left bold rollable stat" data-tooltip="{{localize 'PEN.rollHint'}}" data-action="rollStat" data-stat="{{key}}">{{stat.labelShort}}</div>
+              <div class="stat-name centre {{#isOr (lt stat.poison 0) (lt stat.disease 0)}}result-success bold italics{{/isOr}}">{{stat.total}}</div>
+            {{/each}}
+          </div>
+
+          <div class="status-grid">
+            <div class="stat-name"><a class="item-control large-icon" data-action="toggleActor" data-property="debilitated" data-tooltip="{{localize 'PEN.dblClickToggle'}}"><i class="{{#if statuses.debilitated}}fa-regular fa-square-check{{else}}fa-regular fa-square{{/if}}"></i></a></div>
+            <div class="stat-name">{{localize 'PEN.debilitated'}}</div>
+            <div class="stat-name"><a class="item-control large-icon" data-action="toggleActor" data-property="unconscious" data-tooltip="{{localize 'PEN.dblClickToggle'}}"><i class="{{#if statuses.unconscious}}fa-regular fa-square-check{{else}}fa-regular fa-square{{/if}}"></i></a></div>
+            <div class="stat-name">{{localize 'PEN.unconscious'}}</div>
+            <div class="stat-name"><a class="item-control large-icon" data-action="toggleActor" data-property="dying" data-tooltip="{{localize 'PEN.dblClickToggle'}}"><i class="{{#if statuses.dying}}fa-regular fa-square-check{{else}}fa-regular fa-square{{/if}}"></i></a></div>
+            <div class="stat-name">{{localize 'PEN.nearDeath'}}</div>
+            <div class="stat-name"><a class="item-control large-icon" data-action="toggleActor" data-property="maddened" data-tooltip="{{localize 'PEN.dblClickToggle'}}"><i class="{{#if statuses.maddened}}fa-regular fa-square-check{{else}}fa-regular fa-square{{/if}}"></i></a></div>
+            <div class="stat-name">{{localize 'PEN.madness'}}</div>
+            <div class="stat-name"><a class="item-control large-icon" data-action="toggleActor" data-property="melancholic" data-tooltip="{{localize 'PEN.dblClickToggle'}}"><i class="{{#if statuses.melancholic}}fa-regular fa-square-check{{else}}fa-regular fa-square{{/if}}"></i></a></div>
+            <div class="stat-name">{{localize 'PEN.melancholy'}}</div>
+            <div class="stat-name"><a class="item-control large-icon" data-action="toggleActor" data-property="miserable" data-tooltip="{{localize 'PEN.dblClickToggle'}}"><i class="{{#if statuses.miserable}}fa-regular fa-square-check{{else}}fa-regular fa-square{{/if}}"></i></a></div>
+            <div class="stat-name">{{localize 'PEN.misery'}}</div>
+
+
+
+          </div>
+          <div>
+            <div class="hp-grid">
+              <div class="stat-name left bold">{{localize 'PEN.hp'}}</div>
+              <div class="stat-name centre">{{system.hp.value}} / {{system.hp.max}}</div>
+              <div class="stat-name left bold rollable move" data-tooltip="{{localize 'PEN.rollHint'}}">{{localize 'PEN.move'}}</div>
+              <div class="stat-name centre">{{system.move}}</div>
+              <div class="stat-name left bold rollable glory" data-tooltip="{{localize 'PEN.rollHint'}}">{{localize 'PEN.glory'}}  ({{system.reputation}})</div>
+              <div class="stat-name centre">{{system.glory}}</div>
+              <div class="stat-name left bold">{{localize 'PEN.damage'}}</div>
+              <div class="stat-name centre">{{system.damage}}</div>
+              <div class="stat-name left bold">{{localize 'PEN.armour'}}</div>
+              <div class="stat-name centre" title = "{{localize 'PEN.armourShield'}}">{{system.armour}} / {{system.shield}}</div>
+            </div>  
+            <div class="cash-grid">
+              <div class="stat-name left bold">{{localize 'PEN.money'}}</div>
+              <div class="stat-name-input centre"><input name="system.money.libra" type="text" value="{{system.money.libra}}"/></div>
+              <div class="stat-name-input centre"> /</div>
+              <div class="stat-name-input centre"><input name="system.money.denarii" type="text" value="{{system.money.denarii}}"/></div>
+            </div>
+           </div>    
+        </div>
+      </section>
+
+      {{!-- Image Section --}}
+      <section class="sheet-header">
+        <div class="">
+          <img class="profile-img" src="{{actor.img}}" data-action="onEditImage" data-edit="img" data-tooltip="{{actor.name}}" height="140" width="140"/>
+        </div>
+      </section>  
+    </section>
+  </section>
+</header>
+

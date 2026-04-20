@@ -1,0 +1,481 @@
+{
+  "Actor": {
+    "types": ["character", "npc", "follower","party","encounter","battle"],
+    "templates": {
+      "base": {
+        "hp": {
+          "value": 10,
+          "adj": 0,
+          "min": 0,
+          "max": 10
+        },
+        "stats": {
+          "siz": {
+            "value": 10,
+            "culture": 0,
+            "create": 0,
+            "poison": 0,
+            "disease": 0,
+            "sol":0,
+            "age":0,
+            "major": 0,
+            "winter": 0,
+            "growth": 0,
+            "formula": ""
+          },
+          "dex": {
+            "value": 10,
+            "culture": 0,
+            "create": 0,
+            "poison": 0,
+            "disease": 0,
+            "sol":0,
+            "age":0,
+            "major": 0,
+            "winter": 0,
+            "formula": ""
+          },
+          "str": {
+            "value": 10,
+            "culture": 0,
+            "create": 0,
+            "poison": 0,
+            "disease": 0,
+            "sol":0,
+            "age":0,
+            "major": 0,
+            "winter": 0,
+            "formula": ""
+          },
+          "con": {
+            "value": 10,
+            "culture": 0,
+            "create": 0,
+            "poison": 0,
+            "disease": 0,
+            "sol":0,
+            "age":0,
+            "major": 0,
+            "winter": 0,
+            "formula": ""
+          },
+          "app": {
+            "value": 10,
+            "culture": 0,
+            "create": 0,
+            "poison": 0,
+            "disease": 0,
+            "sol":0,
+            "age":0,
+            "major": 0,
+            "winter": 0,
+            "formula": ""
+          }
+        }
+      }
+    },
+    "character": {
+      "templates": ["base"],
+      "aggravDam": 0,
+      "deterDam": 0,
+      "lord": "",
+      "beauty": 0,
+      "class": "",
+      "parentclass": "",
+      "born": 487,
+      "died": 0,
+      "prestige": 0,
+      "damAdj": 0,
+      "moveAdj": 0,
+      "armourAdj": 0,
+      "sol":"ordinary",
+      "culture": "",
+      "religion": "",
+      "homeland": "",
+      "home": "",
+      "family": "",
+      "gender": "",
+      "features": "",
+      "background": "",
+      "equestrian": "",
+      "heir": false,
+      "heraldry": "",
+      "coatOfArms" : "systems/Pendragon/assets/Icons/checked-shield.svg",
+      "impoverished": 0,
+      "motto": "",
+      "lock": false,
+      "battlePos": "0",
+      "fieldPos": "0",
+      "money": {
+        "libra": 0,
+        "denarii": 0
+      },
+      "joust": {
+        "wins": 0,
+        "losses": 0
+      },
+      "passglory": {
+        "estate": 0,
+        "inyear": 0,
+        "other": 0
+      },
+      "status": {
+        "debilitated": false,
+        "chirurgery": false,
+        "unconscious": false,
+        "nearDeath": false,
+        "madness": false,
+        "melancholy": false,
+        "misery": false,
+        "winter": false,
+        "train": false,
+        "economic": false,
+        "aging": false,
+        "squireAge": false,
+        "horseSurv": false,
+        "familyRoll": false,
+        "xp": false,
+        "barren": false
+      },
+      "create" : {
+        "stats": true,
+        "traits": true,
+        "random": false,
+        "step": 1,
+        "charSet": false,
+        "complete": false,
+        "toggle": true,
+        "knighted": false,
+        "parents": false,
+        "train": false,
+        "heirStat": false
+      }
+    },
+    "npc": {
+      "templates": ["base"],
+      "gloryAward": 0,
+      "gloryTotal": 0,
+      "woundTotal": 0,
+      "lock": false,
+      "notes": "",
+      "altMoveTitle": "Alt Move",
+      "altMove": 0,
+      "manMove":0,
+      "valMod": 0,
+      "manArm": 0,
+      "manShd": 0,
+      "manMaxHP": 0,
+      "manKnockdown": 0,
+      "manMjrWnd": 0,
+      "manDmg": 0,
+      "manHealRate": 0,
+      "manUnconscious": 0,
+      "coatOfArms" : "systems/Pendragon/assets/Icons/checked-shield.svg",
+      "ransom": "",
+      "kv": "",
+      "weaponExp": true,
+      "armorExp": true,
+      "skillExp": true,
+      "traitExp": true,
+      "passionExp": true,
+      "horseExp": true,
+      "talentExp": true,
+      "noteView": false,
+      "random": [],
+      "baseStats":false
+    },
+    "follower": {
+      "templates": ["base"],
+      "subtype": "squire",
+      "woundTotal": 0,
+      "lock": false,
+      "barren": false,
+      "heir": false,
+      "view": false,
+      "sol": "ordinary",
+      "squire": 0,
+      "notes": "",
+      "born": 487,
+      "culture": "",
+      "religion": "",
+      "homeland": "",
+      "family": "",
+      "features": "",
+      "manArm": 0,
+      "manShd": 0,
+      "manMaxHP": 0,
+      "manKnockdown": 0,
+      "manMjrWnd": 0,
+      "manDmg": 0,
+      "manHealRate": 0,
+      "manUnconscious": 0,
+      "manMove":0
+    },
+    "party": {
+      "members": []
+    },
+    "encounter": {
+      "npcs": [],
+      "shortDesc": "",
+      "description": "",
+      "notes": "",
+      "moraleMin": 0,
+      "moraleLoss": "",
+      "opportunity": false,
+      "noteView": false,
+      "npcView":99,
+      "lock": false,
+      "numOpp": 1,
+      "used": false
+    },
+    "battle": {
+      "encounters": [],
+      "knights": [],
+      "maxTurns": 8,
+      "currTurn": 1,
+      "lock": false,
+      "noteView": false,
+      "descripView": false,
+      "encView": false,            
+      "description": "",
+      "notes": "",
+      "battleScore": 0,
+      "intensity": 0,
+      "fieldPos": "",
+      "maxMorale": 0,
+      "currMorale": 0,
+      "shortDesc": ""
+    }
+  },
+  "Item": {
+    "types": ["gear", "skill", "trait", "wound", "history", "passion","horse","squire","armour", "weapon","family", "culture", "religion", "class", "homeland","ideal","relationship"],
+    "templates": {
+      "base": {
+        "libra": 0,
+        "denarii": 0,
+        "description": "",
+        "GMdescription": "",
+        "source": "",
+        "yearAvailable": 0
+      }
+    },
+    "gear": {
+      "templates": ["base"],
+      "quantity": 1
+    },
+    "skill": {
+      "templates": ["base"],
+      "specName": "",
+      "mainName": "",
+      "specialisation": false,
+      "combat": false,
+      "nonknightly": false,
+      "starter": false,
+      "magical": false,
+      "categories": [],
+      "weaponType": "",
+      "value": 0,
+      "culture": 0,
+      "family": 0,
+      "create": 0,
+      "winter": 0,
+      "familyChar": "",
+      "XP": false,
+      "base": {
+        "stat": "",
+        "multi": 1,
+        "mod": 0
+      }
+    },
+    "trait": {
+      "templates": ["base"],
+      "oppName": "",
+      "value": 10,
+      "religious": 0,
+      "winter": 0,
+      "XP": false,
+      "oppXP": false,
+      "directed": ""
+    },
+    "wound": {
+      "value": 0,
+      "treated": false,
+      "created": false,
+      "source": "wound"
+    },
+    "history": {
+      "templates": ["base"],
+      "favour": false,
+      "favourValue": 0,
+      "year": 0,
+      "glory": "0"
+    },
+    "passion": {
+      "templates": ["base"],
+      "specName": "",
+      "mainName": "",
+      "specialisation": false,      
+      "court": "",
+      "value": 0,
+      "homeland": 0,
+      "inherit": 0,
+      "sol": 0,
+      "winter":0,
+      "dishonour": 0,
+      "source": "",
+      "XP": false
+    },
+    "horse": {
+      "templates": ["base"],
+      "armour": 0,
+      "move": 0,
+      "equipped": false,
+      "combat": false,
+      "special": false,
+      "poor": false,
+      "horseCare": "0",
+      "horseHealth": "0",
+      "horseArmour": 0,
+      "horseName": "",
+      "cost":"",
+      "features": "",
+      "colour": "",
+      "breed": "",
+      "personality": "",
+      "age": 0,
+      "damage": "",
+      "chargeDmg": "",
+      "hp": 0,
+      "maxHP": 0,
+      "siz": 0,
+      "dex": 0,
+      "str": 0,
+      "con": 0
+    },
+    "squire": {
+      "templates": ["base"],
+      "age": 14,
+      "skill": 15,
+      "knightMod": 0,
+      "glory": 0,
+      "category": "squire"
+    },
+    "armour": {
+      "templates": ["base"],
+      "ap": 0,
+      "equipped": true,
+      "type": true,
+      "poor": false,
+      "material": "",
+      "padding": "",
+      "disadvantage": "",
+      "missPenalty": 0,
+      "notes": ""
+    },
+    "weapon": {
+      "templates": ["base"],
+      "mounted": "both",
+      "quantity": 1,
+      "melee": true,
+      "improv": false,
+      "skill": "",
+      "value": 0,
+      "damageRoll": "",
+      "damageChar": "c",
+      "damageMax": 99,
+      "damageMod": 0,
+      "damageBonus": 0,
+      "dmgForm": "",
+      "unarmoured":0,
+      "mail": 0,
+      "plate": 0,
+      "parry": 0,
+      "advantage": "",
+      "disadvantage": "",
+      "range": "",
+      "rate": "1"
+    },
+    "family": {
+      "templates": ["base"],
+      "born": 500,
+      "died": "",
+      "gender": "",
+      "blessed": false,
+      "glory": 0,
+      "heroic": 0,
+      "relation": "",
+      "barrenMarriage": false
+     },
+    "culture": {
+      "templates": ["base"],
+      "stats": {
+        "siz": {
+          "formula": "2D6+5",
+          "bonus": 0,
+          "max": 18
+        },
+        "dex": {
+          "formula": "2D6+5",
+          "bonus": 0,
+          "max": 18
+        },
+        "str": {
+          "formula": "2D6+5",
+          "bonus": 0,
+          "max": 18
+        },
+        "con": {
+          "formula": "2D6+5",
+          "bonus": 0,
+          "max": 18
+        },
+        "app": {
+          "formula": "2D6+5",
+          "bonus": 0,
+          "max": 18
+        }
+      },
+      "skills": []
+    },
+    "religion": {
+      "templates": ["base"],
+      "positive": [],
+      "negative": [],
+      "deity": []
+    },
+    "class": {
+      "templates": ["base"],
+      "starter": false,      
+      "passions": [],
+      "gear":[]
+    },
+    "homeland": {
+      "templates": ["base"],
+      "passions": []
+    },
+    "ideal" :{
+      "templates": ["base"],
+      "traitGroup": [],
+      "traitGroupScore": 0,
+      "require": [],
+      "glory": 0,
+      "armour": 0,
+      "hp": 0,
+      "hr": 0,
+      "dam": 0,
+      "move": 0,
+      "protect": false
+    },
+    "relationship" :{
+      "templates": ["base"],
+      "sourceUuid": "",
+      "targetUuid": "",
+      "connection": "",
+      "person1Name": "",
+      "person2Name": "",
+      "typeLabel": "",
+      "born": 0,
+      "squire": 0
+    }
+  }
+}

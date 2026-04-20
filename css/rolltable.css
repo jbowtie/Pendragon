@@ -1,0 +1,19 @@
+.PendragonRoll .window-content {
+  background-image: url("../assets/parchment.jpg");
+  background-size: cover;
+  padding: 0.5em;
+  font-size: var(--font-size-16);
+  .right {
+      text-align: right;
+    }
+  .modOn {
+    font-size: 20px;
+    background-color: var(--color-warm-1);
+    line-height: 19px;
+    margin-right: 3px;
+  }
+  .modOff {
+    font-size: 20px;
+    padding-right: 3px;
+  }  
+} 

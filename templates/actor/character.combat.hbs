@@ -1,0 +1,118 @@
+<section class='character tab combat {{tab.cssClass}}' data-group='primary' data-tab='combat'>
+  <div class="combat-grid">
+    <div>
+      <div class="knock-grid">
+        <div class="stat-name left bold">{{localize 'PEN.knockdown'}}</div>
+        <div class="stat-name centre">{{system.hp.knockdown}}</div>
+        <div class="stat-name left bold">{{localize 'PEN.mjrWnd'}}</div>
+        <div class="stat-name centre">{{system.hp.majorWnd}}</div>
+        <div class="stat-name left bold">{{localize 'PEN.unconscious'}}</div>
+        <div class="stat-name centre">{{system.hp.unconscious}}</div>
+        <div class="stat-name left bold">{{localize 'PEN.battlePosture'}}</div>
+          <div class="stat-name">
+          <select class="centre" style="background-color: lightgrey; max-height: 23px; width: 160px;" data-handle-change name="system.battlePos">
+            {{selectOptions battlePosType selected=system.battlePos}}
+          </select>
+        </div>
+        <div class="stat-name left bold">{{localize 'PEN.fieldPosition'}}</div>
+          <div class="stat-name">
+          <select class="centre" style="background-color: lightgrey; max-height: 23px; width: 160px;" data-handle-change name="system.fieldPos">
+            {{selectOptions fieldPosType selected=system.fieldPos}}
+          </select>
+        </div>              
+      </div>
+      <br>
+
+      <div class="wound-grid">  
+        <div class="stat-name bold grid-item-bottom centre" data-tooltip="{{localize 'PEN.treated'}}">{{ localize "PEN.td" }}</div>  
+        <div class="stat-name bold grid-item-bottom centre">{{ localize "PEN.wounds" }}</div>
+        <div class="stat-name bold grid-item-bottom centre">{{ localize "PEN.dmg" }}</div>    
+        <div class="stat-name bold grid-item-bottom centre" title = "{{ localize 'PEN.firstAid' }}">{{ localize "PEN.firstAidShort" }}</div>
+        <div class="stat-name bold grid-item-bottom centre addWound">  
+          <a class="large-icon" data-tooltip="{{localize 'PEN.addWound'}}"><i class="item-control fas fa-plus"></i></a>
+        </div> 
+        
+
+        {{#each wounds as |wound key|}}
+          <div class="grid-item-bottom stat-name centre"><a class="item-control item-toggle large-icon" data-itemid ="{{wound._id}}" data-property="wound" data-tooltip="{{localize 'PEN.dblClickToggle'}}"><i class="{{#if wound.system.treated}}fa-regular fa-square-check{{else}}fa-regular fa-square{{/if}}"></i></a></div>
+          <div class="grid-item-bottom stat-name centre">{{wound.system.description}}</div>
+          <div class="grid-item-bottom stat-name centre">{{wound.system.value}}</div>
+          {{#if wound.system.treated}}
+            <div class="grid-item-bottom"></div>
+          {{else}}  
+            <div class="item grid-item-bottom centre middle treat-wound" data-itemid="{{wound._id}}">
+              <a class="large-icon" data-tooltip="{{localize 'PEN.treatWound'}}"><i class="item-control fas fa-hand-holding-medical"></i></a>
+            </div>
+          {{/if}} 
+          <div class="item grid-item-bottom centre" data-itemid ="{{wound._id}}">
+            <a class="item-control large-icon fade" data-action="viewDoc"><i data-tooltip="{{localize 'PEN.view'}}" class="fa-solid fa-eye"></i></a>
+            {{#unless ../system.lock}}
+              <a class="item-control large-icon fade" data-action="deleteDoc" data-tooltip="{{localize 'PEN.delete'}}"><i class="item-control fas fa-broom-wide"></i></a>
+            {{/unless}}
+          </div>  
+        {{/each}}
+      </div>     
+    </div>
+
+
+    <div>
+      <div class="hp2-grid">
+        <div class="stat-name left bold">{{localize 'PEN.healRate'}}</div>
+        <div class="stat-name centre">{{system.healRate}}</div>
+        <div class="stat-name left bold">{{localize 'PEN.naturalHeal'}}</div>
+        <div class="item centre middle natural-heal">
+          <a data-tooltip="{{localize 'PEN.naturalHealHint'}}"><i class="item-control large-icon fas fa-sunrise"></i></a>
+        </div>
+        <div class="stat-name left bold">{{localize 'PEN.agro'}}</div>
+        <div class="stat-name stat-name-input centre"><input name="system.aggravDam" type="text" value="{{actor.system.aggravDam}}" data-dtype="Number"/></div>
+        <div class="stat-name left bold">{{localize 'PEN.deterior'}}</div>
+        <div class="stat-name stat-name-input centre"><input name="system.deterDam" type="text" value="{{actor.system.deterDam}}" data-dtype="Number"/></div>
+        <div></div>
+        {{#if statuses.debilitated}}
+          <div class="stat-name left bold new-row">{{localize 'PEN.chirurgery'}}</div>
+          <div class="stat-name centre">
+            <a class="item-control large-icon" data-action="toggleActor" data-property="chirurgery" data-tooltip="{{localize 'PEN.chirurgeryHint'}}"><i class="{{#if system.status.chirurgery}}fa-regular fa-square-check{{else}}fa-regular fa-square{{/if}}"></i></a>
+          </div>
+        {{else}}
+          <div></div>
+        {{/if}}
+      </div>
+      <br>
+      <ol class="weapon-list">
+      <div class="weapon-grid">  
+        <div class="stat-name bold weapon-item">{{ localize "PEN.weapon" }}</div>  
+        <div class="stat-name bold weapon-item centre">{{ localize "PEN.skill" }}</div>
+        <div class="stat-name bold weapon-item centre">{{ localize "PEN.value" }}</div>    
+        <div class="stat-name bold weapon-item centre">{{ localize "PEN.damage" }}</div>    
+        <div class="stat-name bold weapon-item centre" title = "{{ localize 'PEN.rngPryHint' }}">{{ localize "PEN.rngPry" }}</div>
+        <div class="weapon-item" title= "{{localize 'PEN.advDisHint'}}"></div>  
+      </div> 
+
+          {{#each weapons as |weapon key|}}
+            <li class="item weapon-grid" data-drag='true' data-document-class='Item' data-item-id="{{weapon._id}}">
+              <div class="weapon-item stat-name rollable combat" data-tooltip="{{localize 'PEN.rollCombatHint'}}" data-type ="weapon" data-sourceid = "{{weapon.system.sourceID}}" data-itemid="{{weapon._id}}">{{weapon.name}}
+              {{#if (gt weapon.system.quantity 1)}}
+              ({{weapon.system.quantity}})
+              {{/if}}
+              </div>
+              <div class="weapon-item stat-name centre truncate" data-tooltip="{{weapon.system.skillName}}">{{weapon.system.skillName}}</div>
+              <div class="weapon-item stat-name centre">{{weapon.system.total}}</div>
+              <div class="weapon-item stat-name centre rollable damage" data-tooltip="{{localize 'PEN.rollDamageHint'}}" data-itemid="{{weapon._id}}">{{weapon.system.damage}}</div>
+              {{#if weapon.system.melee}}
+                <div class="weapon-item stat-name centre">{{weapon.system.parry}}</div>
+              {{else}}
+                <div class="weapon-item stat-name centre">{{weapon.system.rangeName}}</div>
+              {{/if}}
+              <div class="weapon-item centre item" data-itemid ="{{weapon._id}}">
+                <a class="item-control large-icon fade" data-action="viewDoc"><i data-tooltip="{{localize 'PEN.view'}}" class="fa-solid fa-eye"></i></a>
+                {{#unless ../system.lock}}
+                  <a class="item-control large-icon fade" data-action="deleteDoc"><i data-tooltip="{{localize 'PEN.delete'}}" class="fa-solid fa-broom-wide"></i></a>
+                {{/unless}}
+              </div>  
+            </li>  
+          {{/each}}
+      
+      </ol>
+    </div>
+  </div>
+</section>  

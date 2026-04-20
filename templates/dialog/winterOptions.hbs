@@ -1,0 +1,17 @@
+<section class="Pendragon winter-selector" id="winter-form">
+  <div style="display: block">  
+      <div class="stat-name flavour-result bold">{{localize 'PEN.construct'}}</div>
+      <div class="radioList">
+        {{#each options as | line key|}}  
+          <div class="stat-name">
+            <label>
+              <input type="radio" name="selectItem" value={{line.itemID}} {{#if (eq @index 0)}}checked{{/if}}></input>
+              {{line.name}}
+            </label>
+          </div>
+        {{/each}}  
+      </div>  
+  </div>
+  <br>
+</section>  
+

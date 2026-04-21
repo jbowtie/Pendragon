@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 13.63
+- Fixed Character Create tab layout
+
 ## 13.62
 - Character Creation has been revamped.  Turning Character Creation mode on adds an extra "Create" tab to the character sheet.
 - The steps are listed and each can be activated/reset independently (except Creation Mode - see the note)

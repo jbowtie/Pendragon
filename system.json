@@ -2,7 +2,7 @@
   "id": "Pendragon",
   "title": "Pendragon",
   "description": "Pendragon system for FoundryVTT!",
-  "version": "13.62",
+  "version": "13.63",
   "compatibility": {
     "minimum": 13,
     "verified": "13.351",
@@ -105,7 +105,7 @@
 
   "url": "https://github.com/cragstone/Pendragon",
   "manifest": "https://github.com/cragstone/Pendragon/releases/latest/download/system.json",
-  "download": "https://github.com/cragstone/Pendragon/releases/download/13.62/Pendragon.zip",
+  "download": "https://github.com/cragstone/Pendragon/releases/download/13.63/Pendragon.zip",
   "socket": true,
   "license": "LICENSE.txt",
   "changelog": "CHANGELOG.md"

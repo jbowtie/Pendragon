@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 13.64
+- Fixed bug on creating Ideals
+
 ## 13.63
 - Fixed Character Create tab layout
 

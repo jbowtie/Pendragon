@@ -2,7 +2,7 @@
   <div class="stat-name bold">{{localize 'PEN.gmNotes'}}:</div>
   <div class="background-doc">
   {{#if editable}} 
-    <prose-mirror name="system.GMdescription" data-document-uuid="{{item.uuid}}" value="{{system.GMdescription}}" toggled="true">
+    <prose-mirror name="system.GMdescription" value="{{system.GMdescription}}" editable="{{editable}}" toggled="false">
       {{{enrichedGMDescriptionValue}}}
     </prose-mirror>
   {{else}} {{{enrichedGMDescriptionValue}}}

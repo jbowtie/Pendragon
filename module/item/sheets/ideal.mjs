@@ -195,7 +195,7 @@ export class PendragonIdealSheet extends PendragonItemSheet {
 
       let score = 0;
       if (['require'].includes(collectionName)) {
-        score = await PENCharCreate.inpValue (game.i18n.localize("PEN.minScore"))
+        score = Number((await PENCharCreate.inpValue (game.i18n.localize("PEN.minScore"))).age)
       }
 
       //Add item to collection

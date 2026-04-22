@@ -1235,7 +1235,7 @@ export class PENWinter {
           //If there is a death then check for a Midwife roll
           if (childDies || motherDies) {
             //Get midwife score
-            let midwifScore = await PENCharCreate.inpValue(game.i18n.localize('PEN.midwifeScore'))
+            let midwifScore = Number((await PENCharCreate.inpValue(game.i18n.localize('PEN.midwifeScore')).age))
             if (midwifScore > 0) {
               //If score entered then make check roll
               midResult = await PENUtilities.simpleDiceRoll('1D20')

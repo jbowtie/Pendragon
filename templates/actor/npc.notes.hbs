@@ -3,8 +3,7 @@
     <div class="npc-name bold grey" style="padding-left:10px;">{{ localize "PEN.notes" }}</div>  
     <div class="npcv2-notes-doc">
       {{#if editable}}
-        <prose-mirror name="system.description" data-document-u-u-i-d="{{actor.uuid}}" value="{{system.description}}"
-          collaborate="true" toggled="true">
+        <prose-mirror name="system.description" value="{{system.description}}" editable="{{editable}}" toggled="false">
           {{{enrichedDescription}}}
         </prose-mirror>
       {{else}}

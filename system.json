@@ -97,7 +97,9 @@
         "htmlFields": ["notes"],
         "filePathFields": { "coatOfArms": ["IMAGE"] }
       },
-      "follower": {},
+      "follower": {
+        "htmlFields": ["notes"]
+      },
       "party": {},
       "encounter": {},
       "battle": {}

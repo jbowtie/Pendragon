@@ -14,18 +14,19 @@ import { migrateWorld } from "./setup/migrations.mjs";
 import { PendragonCombatTracker } from "./apps/combat-tracker.mjs";
 import { PendragonStatusEffects } from "./apps/status-effects.mjs";
 import { PIDEditor } from "./pid/pid-editor.mjs";
+import { CharacterData } from "./models/actor/character.mjs";
+import { NpcData } from "./models/actor/npc.mjs";
 import drawNote from "./hooks/draw-note.mjs";
-import RenderNoteConfig from './hooks/render-note-config.mjs'
-import ChaosiumCanvasInterfaceInit from './apps/chaosium-canvas-interface-init.mjs'
-import RenderRegionBehaviorConfig from './hooks/render-region-behavior-config.mjs'
-import RenderRegionConfig from './hooks/render-region-config.mjs'
+import RenderNoteConfig from "./hooks/render-note-config.mjs";
+import ChaosiumCanvasInterfaceInit from "./apps/chaosium-canvas-interface-init.mjs";
+import RenderRegionBehaviorConfig from "./hooks/render-region-behavior-config.mjs";
+import RenderRegionConfig from "./hooks/render-region-config.mjs";
 import { PendragonCalendarWidget } from "./apps/pendragon-calendar.mjs";
-import RenderJournalEntryPageTextSheet from './hooks/render-journal-entry-page-text-sheet.mjs'
-import RenderJournalEntrySheet from './hooks/render-journal-entry-sheet.mjs'
+import RenderJournalEntryPageTextSheet from "./hooks/render-journal-entry-page-text-sheet.mjs";
+import RenderJournalEntrySheet from "./hooks/render-journal-entry-sheet.mjs";
 import createToken from "./hooks/create-token.mjs";
 import RenderRollTableSheet from "./hooks/render-roll-table-sheet.mjs";
 import { ActorImport } from "./apps/actor-import.mjs";
-
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -41,11 +42,18 @@ Hooks.once("init", async function () {
     GMRollMacro,
     NPCImporter,
     ClickRegionLeftUuid: ChaosiumCanvasInterfaceInit.ClickRegionLeftUuid,
-    ClickRegionRightUuid: ChaosiumCanvasInterfaceInit.ClickRegionRightUuid
+    ClickRegionRightUuid: ChaosiumCanvasInterfaceInit.ClickRegionRightUuid,
   };
   //Add skill categories
-  game.Pendragon.skillCategories = ["combat", "courtly", "minsterly", "knightly", "nonknightly", "ladies", "woodcraft"]
-
+  game.Pendragon.skillCategories = [
+    "combat",
+    "courtly",
+    "minsterly",
+    "knightly",
+    "nonknightly",
+    "ladies",
+    "woodcraft",
+  ];
 
   // Add custom constants for configuration.
   CONFIG.PENDRAGON = PENDRAGON;
@@ -53,6 +61,10 @@ Hooks.once("init", async function () {
   //Register Handlebar Helpers & settings
   handlebarsHelper();
   registerSettings();
+
+  // define data models
+  CONFIG.Actor.dataModels.character = CharacterData;
+  CONFIG.Actor.dataModels.npc = NpcData;
 
   // Define custom Document classes
   CONFIG.Actor.documentClass = PendragonActor;
@@ -62,7 +74,10 @@ Hooks.once("init", async function () {
 
   CONFIG.statusEffects = PendragonStatusEffects.allStatusEffects;
   CONFIG.ui.combat = PendragonCombatTracker;
-  CONFIG.Canvas.layers.pendragonmenu = { group: 'interface', layerClass: PENLayer };
+  CONFIG.Canvas.layers.pendragonmenu = {
+    group: "interface",
+    layerClass: PENLayer,
+  };
   // hides the dummy menu item
   Hooks.on("renderSceneControls", PENLayer.renderControls);
   game.Pendragon.ui = { calendar: new PendragonCalendarWidget() };
@@ -75,19 +90,14 @@ Hooks.on("ready", async () => {
 });
 
 Hooks.on("ready", async function () {
-    Scene.prototype._onClickDocumentLink = function (event) {        
-      this.view();
-    }
+  Scene.prototype._onClickDocumentLink = function (event) {
+    this.view();
+  };
 });
 
-
-
-
-
-
-if (foundry.utils.isNewerVersion(game.version, '13')) {
-  Hooks.on('drawNote', drawNote)
-  Hooks.on('renderNoteConfig', RenderNoteConfig)
+if (foundry.utils.isNewerVersion(game.version, "13")) {
+  Hooks.on("drawNote", drawNote);
+  Hooks.on("renderNoteConfig", RenderNoteConfig);
 }
 
 //Add sub-titles in Config Settings for Pendragon Game Settings
@@ -99,8 +109,8 @@ Hooks.on("renderSettingsConfig", (app, html, options) => {
     .closest("div.form-group")
     .before(
       '<h3 class="setting-header">' +
-      game.i18n.localize("PEN.Settings.xpCheck") +
-      "</h3>",
+        game.i18n.localize("PEN.Settings.xpCheck") +
+        "</h3>",
     );
 
   systemTab
@@ -108,8 +118,8 @@ Hooks.on("renderSettingsConfig", (app, html, options) => {
     .closest("div.form-group")
     .before(
       '<h3 class="setting-header">' +
-      game.i18n.localize("PEN.Settings.diceRolls") +
-      "</h3>",
+        game.i18n.localize("PEN.Settings.diceRolls") +
+        "</h3>",
     );
 
   systemTab
@@ -117,22 +127,22 @@ Hooks.on("renderSettingsConfig", (app, html, options) => {
     .closest("div.form-group")
     .before(
       '<h3 class="setting-header">' +
-      game.i18n.localize("PEN.Settings.other") +
-      "</h3>",
+        game.i18n.localize("PEN.Settings.other") +
+        "</h3>",
     );
 });
 
-Hooks.on('renderRegionConfig', RenderRegionConfig);
-Hooks.on('renderJournalEntryPageTextSheet', RenderJournalEntryPageTextSheet)
-Hooks.on('renderJournalEntrySheet', RenderJournalEntrySheet)
-Hooks.on('renderRollTableSheet', RenderRollTableSheet);
-Hooks.on('createToken', createToken);
+Hooks.on("renderRegionConfig", RenderRegionConfig);
+Hooks.on("renderJournalEntryPageTextSheet", RenderJournalEntryPageTextSheet);
+Hooks.on("renderJournalEntrySheet", RenderJournalEntrySheet);
+Hooks.on("renderRollTableSheet", RenderRollTableSheet);
+Hooks.on("createToken", createToken);
 
 PendragonHooks.listen();
 
 // Add PID to roll tables (for v13)
-Hooks.on('renderRollTableSheet', (application, element) =>
-  PIDEditor.addPIDSheetHeaderButton(application, element)
+Hooks.on("renderRollTableSheet", (application, element) =>
+  PIDEditor.addPIDSheetHeaderButton(application, element),
 );
 
 // Customize combat tracker
@@ -148,18 +158,18 @@ Hooks.once("ready", async function () {
   // Always reset GM Tool toggles to False and ensure actors training is false
   //Ensure Development and Create Phases are turned off when game session started
   if (game.user.isGM) {
-    game.settings.set('Pendragon', 'winter', false)
-    game.settings.set('Pendragon', 'development', false)
-    game.settings.set('Pendragon', 'creation', false)    
-    ui.controls.controls.pendragonmenu.tools.winter.active = false
-    ui.controls.controls.pendragonmenu.tools.development.active = false
-    ui.controls.controls.pendragonmenu.tools.creation.active = false    
-    ui.controls.render()
+    game.settings.set("Pendragon", "winter", false);
+    game.settings.set("Pendragon", "development", false);
+    game.settings.set("Pendragon", "creation", false);
+    ui.controls.controls.pendragonmenu.tools.winter.active = false;
+    ui.controls.controls.pendragonmenu.tools.development.active = false;
+    ui.controls.controls.pendragonmenu.tools.creation.active = false;
+    ui.controls.render();
     for (const a of game.actors.contents) {
       if (a.type === "character") {
         await a.update({ "system.status.train": false });
       }
-    }    
+    }
   }
 
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
@@ -179,7 +189,8 @@ Hooks.once("ready", async function () {
     "systemMigrationVersion",
   );
   const needsMigration =
-    !currentVersion || foundry.utils.isNewerVersion(game.system.version, currentVersion);
+    !currentVersion ||
+    foundry.utils.isNewerVersion(game.system.version, currentVersion);
   if (needsMigration) {
     migrateWorld();
   }
@@ -187,13 +198,15 @@ Hooks.once("ready", async function () {
 
 //  Hotbar Macros
 async function createItemMacro(data, slot) {
-  let command = ""
-  let macro = ""
+  let command = "";
+  let macro = "";
   switch (data.type) {
     case "Item":
       // First, determine if this is a valid owned item.
       if (!data.uuid.includes("Actor.") && !data.uuid.includes("Token.")) {
-        return ui.notifications.warn(game.i18n.localize("PEN.noMacroItemOwner"));
+        return ui.notifications.warn(
+          game.i18n.localize("PEN.noMacroItemOwner"),
+        );
       }
       // If it is, retrieve it based on the uuid.
       const item = await Item.fromDropData(data);
@@ -219,7 +232,7 @@ async function createItemMacro(data, slot) {
     case "JournalEntry":
     case "JournalEntryPage":
       command = `await Hotbar.toggleDocumentSheet("${data.uuid}");`;
-      const journal = await fromUuid(data.uuid)
+      const journal = await fromUuid(data.uuid);
       macro = game.macros.find(
         (m) => m.name === journal.name && m.command === command,
       );
@@ -236,7 +249,7 @@ async function createItemMacro(data, slot) {
       break;
 
     case "Macro":
-      let tempMacro = await fromUuid(data.uuid)
+      let tempMacro = await fromUuid(data.uuid);
       macro = game.macros.find(
         (m) => m.name === tempMacro.name && m.command === command,
       );

@@ -6,32 +6,28 @@
   "compatibility": {
     "minimum": 13,
     "verified": "13.351",
-    "maximum": 13
+    "maximum": 14
   },
   "authors": [
-    {"name": "jbowtie"},
-    {"name": "Dangermouse"},
-    {"name": "JamesB"}
+    { "name": "jbowtie" },
+    { "name": "Dangermouse" },
+    { "name": "JamesB" }
   ],
-  "esmodules": ["module/pendragon.mjs",
-                "module/setup/load.mjs"],
-  "styles": ["css/pendragon.css",
-             "css/encounter.css",
-             "css/battle.css",
-             "css/journals.css",
-             "css/rolltable.css"
-            ],
+  "esmodules": ["module/pendragon.mjs", "module/setup/load.mjs"],
+  "styles": [
+    "css/pendragon.css",
+    "css/encounter.css",
+    "css/battle.css",
+    "css/journals.css",
+    "css/rolltable.css"
+  ],
   "scripts": [],
   "packFolders": [
     {
       "name": "Pendragon System",
       "sorting": "m",
       "color": "#1274bd",
-      "packs": [
-        "instructions",
-        "macro",
-        "scenes"
-      ],
+      "packs": ["instructions", "macro", "scenes"],
       "folders": []
     }
   ],
@@ -62,7 +58,7 @@
       "system": "Pendragon",
       "private": false,
       "flags": {}
-    }    
+    }
   ],
   "languages": [
     {
@@ -84,14 +80,47 @@
       "thumbnail": "systems/Pendragon/assets/PEN Logo Blue.jpg"
     }
   ],
-  "grid":{
+  "grid": {
     "distance": 1,
     "units": "yd"
-  }, 
+  },
   "primaryTokenAttribute": "hp",
   "secondaryTokenAttribute": "",
 
   "documentTypes": {
+    "Actor": {
+      "character": {
+        "htmlFields": ["background"],
+        "filePathFields": { "coatOfArms": ["IMAGE"] }
+      },
+      "npc": {
+        "htmlFields": ["notes"],
+        "filePathFields": { "coatOfArms": ["IMAGE"] }
+      },
+      "follower": {},
+      "party": {},
+      "encounter": {},
+      "battle": {}
+    },
+    "Item": {
+      "gear": {},
+      "skill": {},
+      "trait": {},
+      "wound": {},
+      "history": {},
+      "passion": {},
+      "horse": {},
+      "squire": {},
+      "armour": {},
+      "weapon": {},
+      "family": {},
+      "culture": {},
+      "religion": {},
+      "class": {},
+      "homeland": {},
+      "ideal": {},
+      "relationship": {}
+    },
     "RegionBehavior": {
       "ChaosiumCanvasInterfaceAmbientLightToggle": {},
       "ChaosiumCanvasInterfaceDrawingToggle": {},

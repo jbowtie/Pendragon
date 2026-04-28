@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "npc", "follower","party","encounter","battle"],
+    "types": ["npc", "follower", "party", "encounter", "battle"],
     "templates": {
       "base": {
         "hp": {
@@ -16,8 +16,8 @@
             "create": 0,
             "poison": 0,
             "disease": 0,
-            "sol":0,
-            "age":0,
+            "sol": 0,
+            "age": 0,
             "major": 0,
             "winter": 0,
             "growth": 0,
@@ -29,8 +29,8 @@
             "create": 0,
             "poison": 0,
             "disease": 0,
-            "sol":0,
-            "age":0,
+            "sol": 0,
+            "age": 0,
             "major": 0,
             "winter": 0,
             "formula": ""
@@ -41,8 +41,8 @@
             "create": 0,
             "poison": 0,
             "disease": 0,
-            "sol":0,
-            "age":0,
+            "sol": 0,
+            "age": 0,
             "major": 0,
             "winter": 0,
             "formula": ""
@@ -53,8 +53,8 @@
             "create": 0,
             "poison": 0,
             "disease": 0,
-            "sol":0,
-            "age":0,
+            "sol": 0,
+            "age": 0,
             "major": 0,
             "winter": 0,
             "formula": ""
@@ -65,90 +65,13 @@
             "create": 0,
             "poison": 0,
             "disease": 0,
-            "sol":0,
-            "age":0,
+            "sol": 0,
+            "age": 0,
             "major": 0,
             "winter": 0,
             "formula": ""
           }
         }
-      }
-    },
-    "character": {
-      "templates": ["base"],
-      "aggravDam": 0,
-      "deterDam": 0,
-      "lord": "",
-      "beauty": 0,
-      "class": "",
-      "parentclass": "",
-      "born": 487,
-      "died": 0,
-      "prestige": 0,
-      "damAdj": 0,
-      "moveAdj": 0,
-      "armourAdj": 0,
-      "sol":"ordinary",
-      "culture": "",
-      "religion": "",
-      "homeland": "",
-      "home": "",
-      "family": "",
-      "gender": "",
-      "features": "",
-      "background": "",
-      "equestrian": "",
-      "heir": false,
-      "heraldry": "",
-      "coatOfArms" : "systems/Pendragon/assets/Icons/checked-shield.svg",
-      "impoverished": 0,
-      "motto": "",
-      "lock": false,
-      "battlePos": "0",
-      "fieldPos": "0",
-      "money": {
-        "libra": 0,
-        "denarii": 0
-      },
-      "joust": {
-        "wins": 0,
-        "losses": 0
-      },
-      "passglory": {
-        "estate": 0,
-        "inyear": 0,
-        "other": 0
-      },
-      "status": {
-        "debilitated": false,
-        "chirurgery": false,
-        "unconscious": false,
-        "nearDeath": false,
-        "madness": false,
-        "melancholy": false,
-        "misery": false,
-        "winter": false,
-        "train": false,
-        "economic": false,
-        "aging": false,
-        "squireAge": false,
-        "horseSurv": false,
-        "familyRoll": false,
-        "xp": false,
-        "barren": false
-      },
-      "create" : {
-        "stats": true,
-        "traits": true,
-        "random": false,
-        "step": 1,
-        "charSet": false,
-        "complete": false,
-        "toggle": true,
-        "knighted": false,
-        "parents": false,
-        "train": false,
-        "heirStat": false
       }
     },
     "npc": {
@@ -160,7 +83,7 @@
       "notes": "",
       "altMoveTitle": "Alt Move",
       "altMove": 0,
-      "manMove":0,
+      "manMove": 0,
       "valMod": 0,
       "manArm": 0,
       "manShd": 0,
@@ -170,7 +93,7 @@
       "manDmg": 0,
       "manHealRate": 0,
       "manUnconscious": 0,
-      "coatOfArms" : "systems/Pendragon/assets/Icons/checked-shield.svg",
+      "coatOfArms": "systems/Pendragon/assets/Icons/checked-shield.svg",
       "ransom": "",
       "kv": "",
       "weaponExp": true,
@@ -182,7 +105,7 @@
       "talentExp": true,
       "noteView": false,
       "random": [],
-      "baseStats":false
+      "baseStats": false
     },
     "follower": {
       "templates": ["base"],
@@ -209,7 +132,7 @@
       "manDmg": 0,
       "manHealRate": 0,
       "manUnconscious": 0,
-      "manMove":0
+      "manMove": 0
     },
     "party": {
       "members": []
@@ -223,7 +146,7 @@
       "moraleLoss": "",
       "opportunity": false,
       "noteView": false,
-      "npcView":99,
+      "npcView": 99,
       "lock": false,
       "numOpp": 1,
       "used": false
@@ -236,7 +159,7 @@
       "lock": false,
       "noteView": false,
       "descripView": false,
-      "encView": false,            
+      "encView": false,
       "description": "",
       "notes": "",
       "battleScore": 0,
@@ -248,7 +171,25 @@
     }
   },
   "Item": {
-    "types": ["gear", "skill", "trait", "wound", "history", "passion","horse","squire","armour", "weapon","family", "culture", "religion", "class", "homeland","ideal","relationship"],
+    "types": [
+      "gear",
+      "skill",
+      "trait",
+      "wound",
+      "history",
+      "passion",
+      "horse",
+      "squire",
+      "armour",
+      "weapon",
+      "family",
+      "culture",
+      "religion",
+      "class",
+      "homeland",
+      "ideal",
+      "relationship"
+    ],
     "templates": {
       "base": {
         "libra": 0,
@@ -314,13 +255,13 @@
       "templates": ["base"],
       "specName": "",
       "mainName": "",
-      "specialisation": false,      
+      "specialisation": false,
       "court": "",
       "value": 0,
       "homeland": 0,
       "inherit": 0,
       "sol": 0,
-      "winter":0,
+      "winter": 0,
       "dishonour": 0,
       "source": "",
       "XP": false
@@ -337,7 +278,7 @@
       "horseHealth": "0",
       "horseArmour": 0,
       "horseName": "",
-      "cost":"",
+      "cost": "",
       "features": "",
       "colour": "",
       "breed": "",
@@ -386,7 +327,7 @@
       "damageMod": 0,
       "damageBonus": 0,
       "dmgForm": "",
-      "unarmoured":0,
+      "unarmoured": 0,
       "mail": 0,
       "plate": 0,
       "parry": 0,
@@ -405,7 +346,7 @@
       "heroic": 0,
       "relation": "",
       "barrenMarriage": false
-     },
+    },
     "culture": {
       "templates": ["base"],
       "stats": {
@@ -445,15 +386,15 @@
     },
     "class": {
       "templates": ["base"],
-      "starter": false,      
+      "starter": false,
       "passions": [],
-      "gear":[]
+      "gear": []
     },
     "homeland": {
       "templates": ["base"],
       "passions": []
     },
-    "ideal" :{
+    "ideal": {
       "templates": ["base"],
       "traitGroup": [],
       "traitGroupScore": 0,
@@ -466,7 +407,7 @@
       "move": 0,
       "protect": false
     },
-    "relationship" :{
+    "relationship": {
       "templates": ["base"],
       "sourceUuid": "",
       "targetUuid": "",

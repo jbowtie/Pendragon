@@ -1,7 +1,7 @@
 import { PENactorDetails } from "./actorDetails.mjs";
 import { OPCard } from "../cards/opposed-card.mjs";
 import { COCard } from "../cards/combat-card.mjs";
-import  PENDialog  from "../setup/pen-dialog.mjs";
+import PENDialog from "../setup/pen-dialog.mjs";
 
 export class RollType {
   static CHARACTERISTIC = "CH";
@@ -107,7 +107,6 @@ export class PENCheck {
       particType = partic.particType;
       actorType = particActor.type;
     }
-
 
     let tempItem = "";
     let config = {
@@ -282,7 +281,7 @@ export class PENCheck {
           }
         }
         if (config.damCrit) {
-          if (tempItem.system.damageChar === 'b') {
+          if (tempItem.system.damageChar === "b") {
             config.rollFormula = config.rollFormula + "+2D6";
           } else {
             config.rollFormula = config.rollFormula + "+4D6";
@@ -347,7 +346,8 @@ export class PENCheck {
           config.reflex = true;
         } else {
           let targetMsg = await game.messages.get(config.checkMsgId);
-          config.reflexMod = -targetMsg.flags.Pendragon.chatCard[0].reflexMod ?? 0;
+          config.reflexMod =
+            -targetMsg.flags.Pendragon.chatCard[0].reflexMod ?? 0;
         }
         if (!foundry.utils.isNewerVersion(game.version, "11")) {
           config.chatType = CONST.CHAT_MESSAGE_STYLES.OTHER;
@@ -411,10 +411,10 @@ export class PENCheck {
         config.damMod = usage.dmgMod;
         if (config.damMod && !Roll.validate(config.damMod)) {
           ui.notifications.warn(game.i18n.localize("PEN.invalidDamageFormula"));
-          config.damMod = "0"
+          config.damMod = "0";
         }
       } else {
-        return
+        return;
       }
     }
 
@@ -428,7 +428,7 @@ export class PENCheck {
         )[0];
         if (!horsemanship) {
           if (particActor.type != "npc") {
-          config.targetScore = 0;
+            config.targetScore = 0;
           }
         } else if (particActor.type === "character") {
           config.targetScore = Math.min(
@@ -496,13 +496,13 @@ export class PENCheck {
       config.damMod != "0" &&
       config.damMod != ""
     ) {
-      if (['+', '-'].includes(config.damMod.charAt(0))) {
-        config.rollFormula = config.rollFormula + config.damMod.toUpperCase()
+      if (["+", "-"].includes(config.damMod.charAt(0))) {
+        config.rollFormula = config.rollFormula + config.damMod.toUpperCase();
       } else {
-        config.rollFormula = config.rollFormula + "+" + config.damMod.toUpperCase()
+        config.rollFormula =
+          config.rollFormula + "+" + config.damMod.toUpperCase();
       }
     }
-
 
     await PENCheck.makeRoll(config);
 
@@ -571,7 +571,7 @@ export class PENCheck {
           damRoll: config.damRoll,
           damCrit: config.damCrit,
           damShield: config.damShield,
-          damMod: config.damMod,          
+          damMod: config.damMod,
           subType: config.subType,
           fixedOpp: config.fixedOpp,
           action: config.action,
@@ -621,22 +621,25 @@ export class PENCheck {
       reflex: options.reflex,
       flatMod: options.flatMod,
     };
-    const html = await foundry.applications.handlebars.renderTemplate(options.dialogTemplate, data);
-    const dlg = await PENDialog.input(
-      {
-        window: {title: game.i18n.localize('PEN.card.rollMods')},
-        content: html,
-        ok: {
-          label: game.i18n.localize("PEN.rollDice"),
-        },
-      }
+    const html = await foundry.applications.handlebars.renderTemplate(
+      options.dialogTemplate,
+      data,
     );
-    return dlg
+    const dlg = await PENDialog.input({
+      window: { title: game.i18n.localize("PEN.card.rollMods") },
+      content: html,
+      ok: {
+        label: game.i18n.localize("PEN.rollDice"),
+      },
+    });
+    return dlg;
   }
 
   //Call Dice Roll, calculate Result and store original results in rollVal
   static async makeRoll(config) {
-    if (config.rollFormula === "") {config.rollFormula = "0"}
+    if (config.rollFormula === "") {
+      config.rollFormula = "0";
+    }
     let roll = new Roll(config.rollFormula);
     await roll.evaluate();
     config.roll = roll;
@@ -696,7 +699,10 @@ export class PENCheck {
 
   // Prep the chat card
   static async startChat(chatMsgData) {
-    let html = await foundry.applications.handlebars.renderTemplate(chatMsgData.chatTemplate, chatMsgData);
+    let html = await foundry.applications.handlebars.renderTemplate(
+      chatMsgData.chatTemplate,
+      chatMsgData,
+    );
     return html;
   }
 
@@ -712,7 +718,6 @@ export class PENCheck {
     let chatData = {};
     chatData = {
       user: game.user.id,
-      type: chatMsgData.chatType,
       content: html,
       flags: {
         Pendragon: {
@@ -736,7 +741,6 @@ export class PENCheck {
 
     if (chatMsgData.inquiry === "yes") {
       chatData.whisper = ChatMessage.getWhisperRecipients("GM");
-      //chatData.type = CONST.CHAT_MESSAGE_TYPES.ROLL
       chatData.blind = true;
       chatData.rollMode = "blindroll";
     }
